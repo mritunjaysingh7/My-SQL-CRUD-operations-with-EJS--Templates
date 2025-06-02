@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>All users</h1>
+    <form action="http://localhost:3000/api/v1/createnewuser" method="get">
+      <button type="submit">Create User</button>
+    </form>
+    <% for(row of rows ){ %>
+    <div class="ll">
+      <h5><%= row.name %></h5>
+      <h5><%= row.email %></h5>
+    </div>
+    <form  method="get"   action="http://localhost:3000/api/v1/edit/<%=row.id%>/edit" >
+        <button type="submit">Edit</button>
+    </form>
+    <form  method="post"   action="http://localhost:3000/api/v1/delete/<%=row.id%>?_method=DELETE" >
+        <button type="submit">Delete</button>
+    </form>
+
+    <% } %>
+  </body>
+</html>
